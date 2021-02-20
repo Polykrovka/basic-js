@@ -1,7 +1,6 @@
 
 
 module.exports = function createDreamTeam(members) {
-  console.log(members)
   if(!Array.isArray(members)){
     return false;
   }
@@ -12,6 +11,5 @@ module.exports = function createDreamTeam(members) {
     }
     anser.push(i.trim()[0].toUpperCase())
   }
-  console.log(anser.sort().join(''));
   return anser.sort().join('');
 };
