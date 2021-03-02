@@ -1,25 +1,43 @@
-const CustomError = require("../extensions/custom-error");
+
 
 const chainMaker = {
+
+  anser: [],
+
   getLength() {
-    throw new CustomError('Not implemented');
-    // remove line with error and write your code here
+    return this.anser.length;
   },
+
   addLink(value) {
-    throw new CustomError('Not implemented');
-    // remove line with error and write your code here
+    if(value === undefined){
+      this.anser.push('()');
+      return this;
+    } else {
+    this.anser.push('( ' + value + ' )');
+    return this;
+    } 
   },
+
   removeLink(position) {
-    throw new CustomError('Not implemented');
-    // remove line with error and write your code here
+    if(position > this.anser.length || position <= 0 || typeof(position) !== 'number'){
+      this.anser = [];
+      throw Error('removing wrong link');
+    } else {
+      this.anser.splice(position-1, 1)
+      return this;
+    }
+    
   },
+
   reverseChain() {
-    throw new CustomError('Not implemented');
-    // remove line with error and write your code here
+    this.anser = this.anser.reverse();
+    return this; 
   },
+
   finishChain() {
-    throw new CustomError('Not implemented');
-    // remove line with error and write your code here
+    let result = this.anser.join('~~')
+    this.anser = [];
+    return result;
   }
 };
 
